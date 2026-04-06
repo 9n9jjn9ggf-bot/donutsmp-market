@@ -3,195 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>DonutSMP Market - Stashes, Kelp Farms & Bases</title>
-<meta name="description" content="Buy DonutSMP stashes, skelly bases, kelp farms and bone farms. Best Minecraft shop online.">
-
-<link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
-
+<title>DonutsMP Market</title>
 <style>
-body {
+  body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    font-family: 'Minecraftia', Arial;
-    background: #121212;
-    color: #e0e0e0;
-}
+    padding: 0;
+    background-color: #e0f7fa;
+    color: #004d40;
+  }
 
-/* Header */
-header {
-    background: linear-gradient(90deg, #3b8526, #4caf50);
-    padding: 20px;
+  header {
+    background-color: #00796b;
+    color: white;
     text-align: center;
-}
+    padding: 25px 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    position: relative;
+  }
 
-/* Logo */
-.logo {
-    width: 120px;
-    margin-bottom: 10px;
-}
+  header h1 {
+    margin: 0;
+  }
 
-/* Nav */
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    background: #1f1f1f;
-    padding: 10px;
-}
+  header p {
+    margin: 5px 0 0;
+    font-size: 16px;
+  }
 
-nav a {
-    color: #9be564;
+  /* Discord button at top right */
+  .discord-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #7289da;
+    color: white;
     text-decoration: none;
-}
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+  }
 
-/* Hero */
-.hero {
+  .discord-btn:hover {
+    background-color: #5b6eae;
+  }
+
+  section {
+    padding: 30px 10px;
+  }
+
+  h2 {
     text-align: center;
-    padding: 60px 20px;
-    background: url('https://images.unsplash.com/photo-1611605698335-8b1569810432') center/cover;
-}
-
-.hero h1 {
+    margin-bottom: 20px;
     font-size: 28px;
-    text-shadow: 2px 2px black;
-}
+    text-decoration: underline;
+  }
 
-.hero p {
-    font-size: 14px;
-}
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
 
-/* Products */
-.section {
-    padding: 30px 15px;
+  .product {
+    background-color: #b2dfdb;
+    border-radius: 12px;
+    width: 220px;
     text-align: center;
-}
-
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-}
-
-/* Card */
-.card {
-    background: #1e1e1e;
-    border: 2px solid #3b8526;
-    border-radius: 10px;
     padding: 15px;
-    transition: 0.2s;
-}
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
 
-.card:hover {
-    transform: scale(1.05);
-    border-color: #4caf50;
-}
+  .product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  }
 
-.card img {
-    width: 100%;
-    border-radius: 6px;
-}
+  .product img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
 
-.card h3 {
-    color: #9be564;
-}
+  .product h3 {
+    margin: 10px 0 5px;
+  }
 
-button {
-    background: #3b8526;
+  .product p {
+    margin: 5px 0;
+    font-weight: bold;
+  }
+
+  .product button {
+    margin-top: 10px;
+    background-color: #00796b;
+    color: white;
     border: none;
     padding: 10px;
-    color: white;
-    cursor: pointer;
     width: 100%;
-}
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
 
-button:hover {
-    background: #4caf50;
-}
+  .product button:hover {
+    background-color: #004d40;
+  }
 
-/* Footer */
-footer {
-    background: #000;
-    padding: 10px;
-    font-size: 12px;
-}
+  @media (max-width: 600px) {
+    .products {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .discord-btn {
+      position: static;
+      display: inline-block;
+      margin-top: 10px;
+    }
+  }
 </style>
 </head>
-
 <body>
 
 <header>
-<img class="logo" src="https://i.imgur.com/7yUvePI.png">
-<h2>DonutSMP Market</h2>
+  <h1>DonutsMP Market</h1>
+  <p>Click "Buy" to create an order ticket in Discord!</p>
+  <a href="https://discord.gg/5cygXTdGe" class="discord-btn" target="_blank">Join Discord</a>
 </header>
 
-<nav>
-<a href="#">Home</a>
-<a href="#shop">Shop</a>
-<a href="#contact">Contact</a>
-</nav>
+<!-- Farms Section -->
+<section>
+  <h2>Farms</h2>
+  <div class="products" id="farms"></div>
+</section>
 
-<div class="hero">
-<h1>Best DonutSMP Shop</h1>
-<p>Buy stashes, skelly bases, kelp farms and bone farms</p>
-</div>
+<!-- Stashes Section -->
+<section>
+  <h2>Stashes</h2>
+  <div class="products" id="stashes"></div>
+</section>
 
-<div class="section" id="shop">
-<h2>🛒 Shop</h2>
-
-<div class="products">
-
-<div class="card">
-<img src="https://minecraft.wiki/images/Chest_JE2_BE2.png">
-<h3>Stashes</h3>
-<p>Hidden loot coords full of items</p>
-<button onclick="buy('Stash')">Buy</button>
-</div>
-
-<div class="card">
-<img src="https://minecraft.wiki/images/Skeleton_Skull_JE2_BE2.png">
-<h3>Skelly Bases</h3>
-<p>OP skeleton grinder bases</p>
-<button onclick="buy('Skelly Base')">Buy</button>
-</div>
-
-<div class="card">
-<img src="https://minecraft.wiki/images/Kelp_JE2_BE2.png">
-<h3>Kelp Farms</h3>
-<p>Automatic kelp farms for fuel and profit</p>
-<button onclick="buy('Kelp Farm')">Buy</button>
-</div>
-
-<div class="card">
-<img src="https://minecraft.wiki/images/Bone_Block_JE2_BE2.png">
-<h3>Bone Farms</h3>
-<p>Bone block farms for easy resources</p>
-<button onclick="buy('Bone Farm')">Buy</button>
-</div>
-
-</div>
-</div>
-
-<div class="section">
-<h2>About</h2>
-<p>
-Welcome to DonutSMP Market — the best place to buy stashes, bases, and farms.
-Fast delivery and trusted service.
-</p>
-</div>
-
-<div class="section" id="contact">
-<h2>📩 Contact</h2>
-<p>Discord: YourServer#1234</p>
-</div>
-
-<footer>
-© 2026 DonutSMP Market
-</footer>
+<!-- Gambling Bases Section -->
+<section>
+  <h2>Gambling Bases</h2>
+  <div class="products" id="gamblingBases"></div>
+</section>
 
 <script>
-function buy(item) {
-    alert("You selected: " + item + "\nDM on Discord to purchase!");
-}
+  const farms = [
+    { name: "Kelp Farm", price: 50, image: "https://i.imgur.com/uD8Qy6N.png" },
+    { name: "Bone Block Farm", price: 75, image: "https://i.imgur.com/7u0Yb2K.png" }
+  ];
+
+  const stashes = [
+    { name: "Stash", price: 100, image: "https://i.imgur.com/2j6nA3H.png" }
+  ];
+
+  const gamblingBases = [
+    { name: "Gambling Base", price: 150, image: "https://i.imgur.com/8q3mCwJ.png" }
+  ];
+
+  function createProductElement(product) {
+    const div = document.createElement("div");
+    div.classList.add("product");
+    div.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      <p>Price: $${product.price}</p>
+      <button onclick="buyProduct('${product.name}')">Buy</button>
+    `;
+    return div;
+  }
+
+  function buyProduct(productName) {
+    alert(`You clicked Buy for ${productName}.\nPlease create an order ticket in Discord!`);
+  }
+
+  const farmsDiv = document.getElementById("farms");
+  farms.forEach(farm => farmsDiv.appendChild(createProductElement(farm)));
+
+  const stashesDiv = document.getElementById("stashes");
+  stashes.forEach(stash => stashesDiv.appendChild(createProductElement(stash)));
+
+  const gamblingBasesDiv = document.getElementById("gamblingBases");
+  gamblingBases.forEach(base => gamblingBasesDiv.appendChild(createProductElement(base)));
 </script>
 
 </body>
