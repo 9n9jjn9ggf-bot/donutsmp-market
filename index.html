@@ -3,39 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DonutsMP Market</title>
+<title>DonutsMP Market - Minecraft Edition</title>
 <style>
   body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e0f7fa;
-    color: #004d40;
+    color: #3e3e3e;
+    background: linear-gradient(-45deg, #a0d468, #4a7727, #d9e3c4, #6a9a2c);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+  }
+
+  @keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
   }
 
   header {
-    background-color: #00796b;
+    background-color: #4a7727;
     color: white;
     text-align: center;
-    padding: 25px 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    padding: 20px 10px;
     position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    animation: headerColor 5s ease infinite alternate;
+  }
+
+  @keyframes headerColor {
+    0% {background-color: #4a7727;}
+    50% {background-color: #6a9a2c;}
+    100% {background-color: #4a7727;}
   }
 
   header h1 {
     margin: 0;
+    font-family: 'Verdana', sans-serif;
   }
 
-  header p {
-    margin: 5px 0 0;
-    font-size: 16px;
-  }
-
-  /* Discord button at top right */
   .discord-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
     background-color: #7289da;
     color: white;
     text-decoration: none;
@@ -49,15 +59,80 @@
     background-color: #5b6eae;
   }
 
-  section {
-    padding: 30px 10px;
+  #home {
+    text-align: center;
+    padding: 60px 20px;
+    animation: homeBG 8s ease infinite alternate;
   }
 
-  h2 {
+  @keyframes homeBG {
+    0% {background-color: #6a9a2c;}
+    50% {background-color: #4a7727;}
+    100% {background-color: #6a9a2c;}
+  }
+
+  #home h2 {
+    font-size: 36px;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  #home button {
+    background-color: #8d6e63;
+    color: white;
+    font-size: 20px;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+
+  #home button:hover {
+    transform: scale(1.1);
+    background-color: #5d4037;
+  }
+
+  section {
+    padding: 20px 10px;
+  }
+
+  h2.section-title {
     text-align: center;
     margin-bottom: 20px;
     font-size: 28px;
+    color: #2e5d1e;
     text-decoration: underline;
+    animation: titleColor 6s ease infinite alternate;
+  }
+
+  @keyframes titleColor {
+    0% {color: #2e5d1e;}
+    50% {color: #4a7727;}
+    100% {color: #2e5d1e;}
+  }
+
+  .categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .category {
+    background-color: #8d6e63;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .category:hover {
+    transform: translateY(-3px);
+    background-color: #5d4037;
   }
 
   .products {
@@ -68,59 +143,63 @@
   }
 
   .product {
-    background-color: #b2dfdb;
+    background-color: #cfcfcf;
     border-radius: 12px;
-    width: 220px;
+    width: 200px;
     text-align: center;
     padding: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
     transition: transform 0.2s, box-shadow 0.2s;
+    animation: productBG 10s ease infinite alternate;
+  }
+
+  @keyframes productBG {
+    0% {background-color: #cfcfcf;}
+    50% {background-color: #e0e0e0;}
+    100% {background-color: #cfcfcf;}
   }
 
   .product:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
   }
 
   .product img {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
   }
 
   .product h3 {
     margin: 10px 0 5px;
+    font-size: 18px;
   }
 
-  .product button {
+  .buy-btn {
     margin-top: 10px;
-    background-color: #00796b;
-    color: white;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    font-weight: bold;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    border: none;
+    background: none;
+    width: 50px;
+    height: 50px;
   }
 
-  .product button:hover {
-    background-color: #004d40;
+  .buy-btn img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.2s;
+  }
+
+  .buy-btn:hover img {
+    transform: rotateX(20deg) scale(1.2);
   }
 
   @media (max-width: 600px) {
-    .products {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .discord-btn {
-      position: static;
-      display: inline-block;
-      margin-top: 10px;
-    }
+    .products { flex-direction: column; align-items: center; }
+    .categories { flex-direction: column; align-items: center; }
+    .discord-btn { position: static; display: inline-block; margin-top: 10px; }
   }
 </style>
 </head>
@@ -128,66 +207,71 @@
 
 <header>
   <h1>DonutsMP Market</h1>
-  <p>Click "Buy" to create an order ticket in Discord!</p>
   <a href="https://discord.gg/5cygXTdGe" class="discord-btn" target="_blank">Join Discord</a>
 </header>
 
-<!-- Farms Section -->
-<section>
-  <h2>Farms</h2>
-  <div class="products" id="farms"></div>
+<section id="home">
+  <h2>Welcome to DonutsMP Market!</h2>
+  <button onclick="scrollToShop()">Go to Shop</button>
 </section>
 
-<!-- Stashes Section -->
-<section>
-  <h2>Stashes</h2>
-  <div class="products" id="stashes"></div>
-</section>
-
-<!-- Gambling Bases Section -->
-<section>
-  <h2>Gambling Bases</h2>
-  <div class="products" id="gamblingBases"></div>
+<section id="shop">
+  <h2 class="section-title">Categories</h2>
+  <div class="categories">
+    <div class="category" onclick="filterProducts('all')">All</div>
+    <div class="category" onclick="filterProducts('farms')">Farms</div>
+    <div class="category" onclick="filterProducts('stashes')">Stashes</div>
+    <div class="category" onclick="filterProducts('gamblingBases')">Gambling Bases</div>
+  </div>
+  <div class="products" id="products"></div>
 </section>
 
 <script>
-  const farms = [
-    { name: "Kelp Farm", image: "https://i.imgur.com/uD8Qy6N.png" },
-    { name: "Bone Block Farm", image: "https://i.imgur.com/7u0Yb2K.png" }
-  ];
+function scrollToShop() {
+  document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+}
 
-  const stashes = [
-    { name: "Stash", image: "https://i.imgur.com/2j6nA3H.png" }
-  ];
+const allProducts = [
+  { name: "Kelp Farm", type: "farms", image: "https://i.imgur.com/uD8Qy6N.png" },
+  { name: "Bone Block Farm", type: "farms", image: "https://i.imgur.com/7u0Yb2K.png" },
+  { name: "Stash", type: "stashes", image: "https://i.imgur.com/2j6nA3H.png" },
+  { name: "Gambling Base", type: "gamblingBases", image: "https://i.imgur.com/8q3mCwJ.png" }
+];
 
-  const gamblingBases = [
-    { name: "Gambling Base", image: "https://i.imgur.com/8q3mCwJ.png" }
-  ];
+const productsDiv = document.getElementById("products");
 
-  function createProductElement(product) {
-    const div = document.createElement("div");
-    div.classList.add("product");
-    div.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <h3>${product.name}</h3>
-      <button onclick="buyProduct('${product.name}')">Buy</button>
-    `;
-    return div;
-  }
+function createProductElement(product) {
+  const div = document.createElement("div");
+  div.classList.add("product");
+  div.setAttribute("data-type", product.type);
+  div.innerHTML = `
+    <img src="${product.image}" alt="${product.name}">
+    <h3>${product.name}</h3>
+    <button class="buy-btn" onclick="buyProduct('${product.name}')">
+      <img src="https://i.imgur.com/Xo5m6hF.png" alt="Minecraft Chest">
+    </button>
+  `;
+  return div;
+}
 
-  function buyProduct(productName) {
-    alert(`You clicked Buy for ${productName}.\nPlease create an order ticket in Discord!`);
-  }
+function buyProduct(productName) {
+  alert(`You clicked Buy for ${productName}.\nPlease create an order ticket in Discord!`);
+}
 
-  const farmsDiv = document.getElementById("farms");
-  farms.forEach(farm => farmsDiv.appendChild(createProductElement(farm)));
+function renderProducts(filter = 'all') {
+  productsDiv.innerHTML = '';
+  allProducts.forEach(product => {
+    if(filter === 'all' || product.type === filter){
+      productsDiv.appendChild(createProductElement(product));
+    }
+  });
+}
 
-  const stashesDiv = document.getElementById("stashes");
-  stashes.forEach(stash => stashesDiv.appendChild(createProductElement(stash)));
+function filterProducts(category){
+  renderProducts(category);
+}
 
-  const gamblingBasesDiv = document.getElementById("gamblingBases");
-  gamblingBases.forEach(base => gamblingBasesDiv.appendChild(createProductElement(base)));
+renderProducts();
 </script>
-
 </body>
 </html>
