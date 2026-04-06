@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DonutSMP Market - Stashes, Farms & Bases</title>
-<meta name="description" content="Buy DonutSMP stashes, skelly bases and farms. Best Minecraft shop online.">
+<title>DonutSMP Market - Stashes, Kelp Farms & Bases</title>
+<meta name="description" content="Buy DonutSMP stashes, skelly bases, kelp farms and bone farms. Best Minecraft shop online.">
 
 <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
 
@@ -22,7 +22,12 @@ header {
     background: linear-gradient(90deg, #3b8526, #4caf50);
     padding: 20px;
     text-align: center;
-    font-size: 22px;
+}
+
+/* Logo */
+.logo {
+    width: 120px;
+    margin-bottom: 10px;
 }
 
 /* Nav */
@@ -55,18 +60,16 @@ nav a {
     font-size: 14px;
 }
 
-/* Section */
+/* Products */
 .section {
     padding: 30px 15px;
     text-align: center;
 }
 
-/* Product grid */
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
-    padding: 10px;
 }
 
 /* Card */
@@ -89,7 +92,6 @@ nav a {
 }
 
 .card h3 {
-    margin: 10px 0 5px;
     color: #9be564;
 }
 
@@ -100,7 +102,6 @@ button {
     color: white;
     cursor: pointer;
     width: 100%;
-    margin-top: 10px;
 }
 
 button:hover {
@@ -118,7 +119,10 @@ footer {
 
 <body>
 
-<header>🍩 DonutSMP Market</header>
+<header>
+<img class="logo" src="https://i.imgur.com/7yUvePI.png">
+<h2>DonutSMP Market</h2>
+</header>
 
 <nav>
 <a href="#">Home</a>
@@ -128,7 +132,7 @@ footer {
 
 <div class="hero">
 <h1>Best DonutSMP Shop</h1>
-<p>Buy Stashes • Skelly Bases • Farms</p>
+<p>Buy stashes, skelly bases, kelp farms and bone farms</p>
 </div>
 
 <div class="section" id="shop">
@@ -151,10 +155,17 @@ footer {
 </div>
 
 <div class="card">
-<img src="https://minecraft.wiki/images/Wheat_Stage7_JE2_BE2.png">
-<h3>Farms</h3>
-<p>XP + mob farms ready to use</p>
-<button onclick="buy('Farm')">Buy</button>
+<img src="https://minecraft.wiki/images/Kelp_JE2_BE2.png">
+<h3>Kelp Farms</h3>
+<p>Automatic kelp farms for fuel and profit</p>
+<button onclick="buy('Kelp Farm')">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://minecraft.wiki/images/Bone_Block_JE2_BE2.png">
+<h3>Bone Farms</h3>
+<p>Bone block farms for easy resources</p>
+<button onclick="buy('Bone Farm')">Buy</button>
 </div>
 
 </div>
@@ -163,7 +174,7 @@ footer {
 <div class="section">
 <h2>About</h2>
 <p>
-Welcome to DonutSMP Market — the best place to buy stashes, farms, and skelly bases.
+Welcome to DonutSMP Market — the best place to buy stashes, bases, and farms.
 Fast delivery and trusted service.
 </p>
 </div>
