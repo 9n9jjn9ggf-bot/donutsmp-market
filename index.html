@@ -93,11 +93,6 @@
     margin: 10px 0 5px;
   }
 
-  .product p {
-    margin: 5px 0;
-    font-weight: bold;
-  }
-
   .product button {
     margin-top: 10px;
     background-color: #00796b;
@@ -157,16 +152,16 @@
 
 <script>
   const farms = [
-    { name: "Kelp Farm", price: 50, image: "https://i.imgur.com/uD8Qy6N.png" },
-    { name: "Bone Block Farm", price: 75, image: "https://i.imgur.com/7u0Yb2K.png" }
+    { name: "Kelp Farm", image: "https://i.imgur.com/uD8Qy6N.png" },
+    { name: "Bone Block Farm", image: "https://i.imgur.com/7u0Yb2K.png" }
   ];
 
   const stashes = [
-    { name: "Stash", price: 100, image: "https://i.imgur.com/2j6nA3H.png" }
+    { name: "Stash", image: "https://i.imgur.com/2j6nA3H.png" }
   ];
 
   const gamblingBases = [
-    { name: "Gambling Base", price: 150, image: "https://i.imgur.com/8q3mCwJ.png" }
+    { name: "Gambling Base", image: "https://i.imgur.com/8q3mCwJ.png" }
   ];
 
   function createProductElement(product) {
@@ -175,7 +170,6 @@
     div.innerHTML = `
       <img src="${product.image}" alt="${product.name}">
       <h3>${product.name}</h3>
-      <p>Price: $${product.price}</p>
       <button onclick="buyProduct('${product.name}')">Buy</button>
     `;
     return div;
