@@ -1,168 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><title>DonutSMP Market - Buy Stashes, Farms & Skelly Bases</title>
-
-<meta name="description" content="Best DonutSMP Market. Buy stashes, skelly bases and farms. Fast delivery. Trusted Minecraft shop.">
-
-<meta name="keywords" content="DonutSMP shop, DonutSMP market, Minecraft stashes, skelly base, Minecraft farms, DonutSMP loot">
-
-<meta name="robots" content="index, follow">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="google-site-verification" content="RmSRmPlXJFlSJKq4qYDgEjjU9x7uIrwJwSbfBrp9Id4" />
+<title>DonutSMP Market - Stashes, Farms & Bases</title>
+<meta name="description" content="Buy DonutSMP stashes, skelly bases and farms. Best Minecraft shop online.">
 
-<title>DonutSMP Market</title>
-
-<link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
-</head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="google-site-verification" content="RmSRmPlXJFlSJKq4qYDgEjjU9x7uIrwJwSbfBrp9Id4" />
-
-<title>DonutSMP Market</title>
-
-<link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
-</head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DonutSMP Market</title>
-
-<!-- Minecraft font -->
 <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
     font-family: 'Minecraftia', Arial;
-    background: #1b1b1b;
+    background: #121212;
     color: #e0e0e0;
 }
 
 /* Header */
 header {
-    background: #3b8526;
-    padding: 15px;
+    background: linear-gradient(90deg, #3b8526, #4caf50);
+    padding: 20px;
     text-align: center;
-    font-size: 20px;
-    border-bottom: 4px solid #2a5d1a;
+    font-size: 22px;
 }
 
-/* Navigation */
+/* Nav */
 nav {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    background: #2c2c2c;
-    padding: 8px;
+    gap: 15px;
+    background: #1f1f1f;
+    padding: 10px;
 }
 
 nav a {
     color: #9be564;
-    margin: 5px 10px;
     text-decoration: none;
-    font-size: 12px;
 }
 
-nav a:hover {
-    color: #fff;
-}
-
-/* Hero Section */
+/* Hero */
 .hero {
-    background: url('https://i.imgur.com/3e5ZQkB.png') center/cover;
-    padding: 50px 15px;
     text-align: center;
+    padding: 60px 20px;
+    background: url('https://images.unsplash.com/photo-1611605698335-8b1569810432') center/cover;
 }
 
 .hero h1 {
-    font-size: 22px;
-    text-shadow: 2px 2px #000;
+    font-size: 28px;
+    text-shadow: 2px 2px black;
 }
 
 .hero p {
-    font-size: 12px;
+    font-size: 14px;
 }
 
-/* Shop Section */
+/* Section */
 .section {
-    padding: 25px 15px;
+    padding: 30px 15px;
     text-align: center;
 }
 
-.inventory {
+/* Product grid */
+.products {
     display: grid;
-    grid-template-columns: repeat(3, 80px);
-    justify-content: center;
-    gap: 10px;
-    background: #3c3c3c;
-    padding: 20px;
-    border: 4px solid #222;
-    border-radius: 6px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 10px;
 }
 
-.slot {
-    width: 80px;
-    height: 80px;
-    background: #8b8b8b;
-    border: 2px solid #555;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border-radius: 4px;
+/* Card */
+.card {
+    background: #1e1e1e;
+    border: 2px solid #3b8526;
+    border-radius: 10px;
+    padding: 15px;
+    transition: 0.2s;
 }
 
-.slot img {
-    max-width: 50px;
+.card:hover {
+    transform: scale(1.05);
+    border-color: #4caf50;
 }
 
-.slot p {
-    font-size: 10px;
-    margin: 2px 0 0 0;
-}
-
-.slot:hover {
-    background: #a0a0a0;
-}
-
-/* Admin Panel */
-#admin {
-    margin-top: 20px;
-    padding: 20px;
-    background: #2c2c2c;
+.card img {
+    width: 100%;
     border-radius: 6px;
 }
 
-#admin input {
-    width: 120px;
-    margin: 5px;
-    padding: 5px;
-    font-family: 'Minecraftia';
+.card h3 {
+    margin: 10px 0 5px;
+    color: #9be564;
 }
 
-#admin button {
-    padding: 5px 10px;
+button {
     background: #3b8526;
-    border: 2px solid #2a5d1a;
+    border: none;
+    padding: 10px;
     color: white;
     cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #4caf50;
 }
 
 /* Footer */
 footer {
-    background: #111;
+    background: #000;
     padding: 10px;
-    font-size: 10px;
-}
-
-/* Desktop Upgrade */
-@media (min-width: 768px) {
-    .hero h1 { font-size: 36px; }
-    nav a { font-size: 14px; }
+    font-size: 12px;
 }
 </style>
 </head>
@@ -172,73 +121,67 @@ footer {
 <header>🍩 DonutSMP Market</header>
 
 <nav>
-    <a href="#">Home</a>
-    <a href="#shop">Shop</a>
-    <a href="#contact">Contact</a>
+<a href="#">Home</a>
+<a href="#shop">Shop</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <div class="hero">
-    <h1>Ultimate DonutSMP Shop</h1>
-    <p>Stashes • Skelly Bases • Farms</p>
+<h1>Best DonutSMP Shop</h1>
+<p>Buy Stashes • Skelly Bases • Farms</p>
 </div>
 
 <div class="section" id="shop">
-    <h2>🧰 Shop</h2>
-    <div class="inventory" id="inventory">
-        <!-- Products dynamically loaded -->
-    </div>
+<h2>🛒 Shop</h2>
 
-    <!-- Admin Panel to add products -->
-    <div id="admin">
-        <h3>🔧 Admin Panel</h3>
-        <input type="text" id="productName" placeholder="Product Name">
-        <input type="text" id="productImage" placeholder="Image URL">
-        <button onclick="addProduct()">Add Product</button>
-    </div>
+<div class="products">
+
+<div class="card">
+<img src="https://minecraft.wiki/images/Chest_JE2_BE2.png">
+<h3>Stashes</h3>
+<p>Hidden loot coords full of items</p>
+<button onclick="buy('Stash')">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://minecraft.wiki/images/Skeleton_Skull_JE2_BE2.png">
+<h3>Skelly Bases</h3>
+<p>OP skeleton grinder bases</p>
+<button onclick="buy('Skelly Base')">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://minecraft.wiki/images/Wheat_Stage7_JE2_BE2.png">
+<h3>Farms</h3>
+<p>XP + mob farms ready to use</p>
+<button onclick="buy('Farm')">Buy</button>
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<h2>About</h2>
+<p>
+Welcome to DonutSMP Market — the best place to buy stashes, farms, and skelly bases.
+Fast delivery and trusted service.
+</p>
 </div>
 
 <div class="section" id="contact">
-    <h2>📩 Contact</h2>
-    <p>Discord: YourServer#1234</p>
+<h2>📩 Contact</h2>
+<p>Discord: YourServer#1234</p>
 </div>
 
-<footer>© 2026 DonutSMP Market</footer>
+<footer>
+© 2026 DonutSMP Market
+</footer>
 
 <script>
-// Load products from local storage or default
-let products = JSON.parse(localStorage.getItem("products")) || [
-    {name: "Stash", image: "https://minecraft.wiki/images/Chest_JE2_BE2.png"},
-    {name: "Skelly Base", image: "https://minecraft.wiki/images/Skeleton_Skull_JE2_BE2.png"},
-    {name: "Farm", image: "https://minecraft.wiki/images/Wheat_Stage7_JE2_BE2.png"}
-];
-
-// Render the inventory
-function renderProducts() {
-    const inventory = document.getElementById("inventory");
-    inventory.innerHTML = "";
-    products.forEach(p => {
-        const slot = document.createElement("div");
-        slot.className = "slot";
-        slot.innerHTML = `<img src="${p.image}" alt="${p.name}"><p>${p.name}</p>`;
-        slot.onclick = () => alert("You selected: " + p.name + "\nDM on Discord to purchase!");
-        inventory.appendChild(slot);
-    });
+function buy(item) {
+    alert("You selected: " + item + "\nDM on Discord to purchase!");
 }
-
-// Add product from admin panel
-function addProduct() {
-    const name = document.getElementById("productName").value.trim();
-    const image = document.getElementById("productImage").value.trim();
-    if(!name || !image) return alert("Fill in both fields!");
-    products.push({name, image});
-    localStorage.setItem("products", JSON.stringify(products));
-    renderProducts();
-    document.getElementById("productName").value = "";
-    document.getElementById("productImage").value = "";
-}
-
-// Initial render
-renderProducts();
 </script>
 
 </body>
+</html>
