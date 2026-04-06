@@ -9,7 +9,7 @@
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000; /* dark background */
+    background-color: #000;
     color: #fff;
   }
 
@@ -20,10 +20,7 @@
     position: relative;
   }
 
-  header h1 {
-    margin: 0;
-    font-family: 'Verdana', sans-serif;
-  }
+  header h1 { margin: 0; font-family: 'Verdana', sans-serif; }
 
   .discord-btn {
     position: absolute;
@@ -37,37 +34,26 @@
     font-weight: bold;
   }
 
-  .discord-btn:hover {
-    background-color: #5b6eae;
-  }
+  .discord-btn:hover { background-color: #5b6eae; }
 
-  #home {
+  #home { text-align: center; padding: 60px 20px; }
+  #home h2 { font-size: 36px; margin-bottom: 20px; }
+
+  /* Notice about prices */
+  #home p {
+    color: #00ffcc;
+    font-size: 18px;
+    margin: 15px 0;
     text-align: center;
-    padding: 60px 20px;
-  }
-
-  #home h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
   }
 
   #home button {
-    background-color: #8d6e63;
-    color: white;
-    font-size: 20px;
-    padding: 15px 25px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+    background-color: #8d6e63; color: white; font-size: 20px;
+    padding: 15px 25px; border: none; border-radius: 10px; cursor: pointer;
   }
+  #home button:hover { transform: scale(1.1); }
 
-  #home button:hover {
-    transform: scale(1.1);
-  }
-
-  section {
-    padding: 20px 10px;
-  }
+  section { padding: 20px 10px; }
 
   h2.section-title {
     text-align: center;
@@ -78,11 +64,8 @@
   }
 
   .categories {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 20px;
+    display: flex; justify-content: center; flex-wrap: wrap;
+    gap: 20px; margin-bottom: 20px;
   }
 
   .category {
@@ -94,15 +77,10 @@
     cursor: pointer;
   }
 
-  .category:hover {
-    background-color: #555;
-  }
+  .category:hover { background-color: #555; }
 
   .products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
   }
 
   .product {
@@ -115,24 +93,12 @@
     transition: transform 0.2s;
   }
 
-  .product:hover {
-    transform: translateY(-5px);
-  }
+  .product:hover { transform: translateY(-5px); }
 
-  .product img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-  }
+  .product img { width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
+  .product h3 { margin: 10px 0 5px; font-size: 18px; }
 
-  .product h3 {
-    margin: 10px 0 5px;
-    font-size: 18px;
-  }
-
-  /* Glowing chest button */
+  /* Chest button */
   .buy-btn {
     margin-top: 10px;
     border: none;
@@ -142,27 +108,25 @@
     cursor: pointer;
     animation: glow 2s infinite alternate;
   }
-
-  .buy-btn img {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.2s;
-  }
-
-  .buy-btn:hover img {
-    transform: scale(1.2) rotateX(20deg);
-  }
+  .buy-btn img { width: 100%; height: 100%; transition: transform 0.2s; }
+  .buy-btn:hover img { transform: scale(1.2) rotateX(20deg); }
 
   @keyframes glow {
-    0% {
-      filter: drop-shadow(0 0 5px #00ffcc);
-    }
-    50% {
-      filter: drop-shadow(0 0 15px #00ffcc);
-    }
-    100% {
-      filter: drop-shadow(0 0 5px #00ffcc);
-    }
+    0% { filter: drop-shadow(0 0 5px #00ffcc); }
+    50% { filter: drop-shadow(0 0 15px #00ffcc); }
+    100% { filter: drop-shadow(0 0 5px #00ffcc); }
+  }
+
+  /* Chest open animation frames */
+  .open img {
+    animation: chestOpen 0.5s steps(4) forwards;
+  }
+  @keyframes chestOpen {
+    0% { transform: scale(1) rotateX(0deg); }
+    25% { transform: scale(1) rotateX(10deg); }
+    50% { transform: scale(1) rotateX(20deg); }
+    75% { transform: scale(1) rotateX(30deg); }
+    100% { transform: scale(1) rotateX(40deg); }
   }
 
   @media (max-width: 600px) {
@@ -181,6 +145,10 @@
 
 <section id="home">
   <h2>Welcome to DonutsMP Market!</h2>
+  <p>
+    Prices vary! All prices for Farms, Stashes, Mines, and Dug Out Areas are available on our Discord server.<br>
+    If you're ordering, make sure to <strong>join our Discord</strong>!
+  </p>
   <button onclick="scrollToShop()">Go to Shop</button>
 </section>
 
@@ -191,8 +159,8 @@
     <div class="category" onclick="filterProducts('farms')">Farms</div>
     <div class="category" onclick="filterProducts('stashes')">Stashes</div>
     <div class="category" onclick="filterProducts('gamblingBases')">Gambling Bases</div>
+    <div class="category" onclick="filterProducts('mines')">Mines</div>
   </div>
-
   <div class="products" id="products"></div>
 </section>
 
@@ -201,12 +169,15 @@ function scrollToShop() {
   document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
 }
 
-// All products are now fully available
+// All products including Mines category
 const allProducts = [
   { name: "Kelp Farm", type: "farms", image: "https://i.imgur.com/uD8Qy6N.png" },
   { name: "Bone Block Farm", type: "farms", image: "https://i.imgur.com/7u0Yb2K.png" },
   { name: "Stash", type: "stashes", image: "https://i.imgur.com/2j6nA3H.png" },
-  { name: "Gambling Base", type: "gamblingBases", image: "https://i.imgur.com/8q3mCwJ.png" }
+  { name: "Gambling Base", type: "gamblingBases", image: "https://i.imgur.com/8q3mCwJ.png" },
+  { name: "Small Mine Plot", type: "mines", image: "https://i.imgur.com/6zL1V5L.png" },
+  { name: "Medium Mine Plot", type: "mines", image: "https://i.imgur.com/7WjRrO7.png" },
+  { name: "Large Mine Plot", type: "mines", image: "https://i.imgur.com/8vYExw1.png" }
 ];
 
 const productsDiv = document.getElementById("products");
@@ -218,7 +189,7 @@ function createProductElement(product) {
   div.innerHTML = `
     <img src="${product.image}" alt="${product.name}">
     <h3>${product.name}</h3>
-    <button class="buy-btn" onclick="buyProduct('${product.name}')">
+    <button class="buy-btn" onclick="openChest(this, '${product.name}')">
       <img src="https://i.imgur.com/Xo5m6hF.png" alt="Minecraft Chest">
     </button>
   `;
@@ -238,8 +209,13 @@ function filterProducts(category){
   renderProducts(category);
 }
 
-function buyProduct(name){
-  alert(`You clicked Buy for ${name}.\nPlease create an order ticket in Discord!`);
+// Chest animation + alert
+function openChest(button, name) {
+  button.classList.add('open');
+  setTimeout(() => {
+    alert(`You clicked Buy for ${name}.\nPlease create an order ticket in Discord!`);
+    button.classList.remove('open');
+  }, 500);
 }
 
 renderProducts();
