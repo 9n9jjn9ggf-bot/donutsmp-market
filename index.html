@@ -3,38 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DonutsMP Market - Minecraft Edition</title>
+<title>DonutsMP Market</title>
 <style>
   body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    color: #3e3e3e;
-    background: linear-gradient(-45deg, #a0d468, #4a7727, #d9e3c4, #6a9a2c);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-  }
-
-  @keyframes gradientBG {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
+    background-color: #000; /* black background */
+    color: #fff;
   }
 
   header {
-    background-color: #4a7727;
+    background-color: #111;
     color: white;
     text-align: center;
     padding: 20px 10px;
     position: relative;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    animation: headerColor 5s ease infinite alternate;
-  }
-
-  @keyframes headerColor {
-    0% {background-color: #4a7727;}
-    50% {background-color: #6a9a2c;}
-    100% {background-color: #4a7727;}
   }
 
   header h1 {
@@ -62,18 +46,11 @@
   #home {
     text-align: center;
     padding: 60px 20px;
-    animation: homeBG 8s ease infinite alternate;
-  }
-
-  @keyframes homeBG {
-    0% {background-color: #6a9a2c;}
-    50% {background-color: #4a7727;}
-    100% {background-color: #6a9a2c;}
   }
 
   #home h2 {
     font-size: 36px;
-    color: white;
+    color: #f2f2f2;
     margin-bottom: 20px;
   }
 
@@ -101,15 +78,8 @@
     text-align: center;
     margin-bottom: 20px;
     font-size: 28px;
-    color: #2e5d1e;
+    color: #ccc;
     text-decoration: underline;
-    animation: titleColor 6s ease infinite alternate;
-  }
-
-  @keyframes titleColor {
-    0% {color: #2e5d1e;}
-    50% {color: #4a7727;}
-    100% {color: #2e5d1e;}
   }
 
   .categories {
@@ -121,7 +91,7 @@
   }
 
   .category {
-    background-color: #8d6e63;
+    background-color: #333;
     color: white;
     padding: 10px 20px;
     border-radius: 8px;
@@ -132,7 +102,7 @@
 
   .category:hover {
     transform: translateY(-3px);
-    background-color: #5d4037;
+    background-color: #555;
   }
 
   .products {
@@ -143,25 +113,12 @@
   }
 
   .product {
-    background-color: #cfcfcf;
+    background-color: #222;
     border-radius: 12px;
     width: 200px;
     text-align: center;
     padding: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
-    transition: transform 0.2s, box-shadow 0.2s;
-    animation: productBG 10s ease infinite alternate;
-  }
-
-  @keyframes productBG {
-    0% {background-color: #cfcfcf;}
-    50% {background-color: #e0e0e0;}
-    100% {background-color: #cfcfcf;}
-  }
-
-  .product:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+    box-shadow: 0 4px 8px rgba(255,255,255,0.1);
   }
 
   .product img {
@@ -170,16 +127,18 @@
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;
+    opacity: 0.7; /* make images dim to match the "locked" theme */
   }
 
   .product h3 {
     margin: 10px 0 5px;
     font-size: 18px;
+    color: #bbb;
   }
 
   .buy-btn {
     margin-top: 10px;
-    cursor: pointer;
+    cursor: not-allowed; /* users cannot click */
     border: none;
     background: none;
     width: 50px;
@@ -189,11 +148,7 @@
   .buy-btn img {
     width: 100%;
     height: 100%;
-    transition: transform 0.2s;
-  }
-
-  .buy-btn:hover img {
-    transform: rotateX(20deg) scale(1.2);
+    opacity: 0.5;
   }
 
   @media (max-width: 600px) {
@@ -223,6 +178,7 @@
     <div class="category" onclick="filterProducts('stashes')">Stashes</div>
     <div class="category" onclick="filterProducts('gamblingBases')">Gambling Bases</div>
   </div>
+
   <div class="products" id="products"></div>
 </section>
 
@@ -231,11 +187,12 @@ function scrollToShop() {
   document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
 }
 
+// Example products – all “locked” for region
 const allProducts = [
-  { name: "Kelp Farm", type: "farms", image: "https://i.imgur.com/uD8Qy6N.png" },
-  { name: "Bone Block Farm", type: "farms", image: "https://i.imgur.com/7u0Yb2K.png" },
-  { name: "Stash", type: "stashes", image: "https://i.imgur.com/2j6nA3H.png" },
-  { name: "Gambling Base", type: "gamblingBases", image: "https://i.imgur.com/8q3mCwJ.png" }
+  { name: "Kelp Farm", type: "farms", image: "https://i.imgur.com/uD8Qy6N.png", available: false },
+  { name: "Bone Block Farm", type: "farms", image: "https://i.imgur.com/7u0Yb2K.png", available: false },
+  { name: "Stash", type: "stashes", image: "https://i.imgur.com/2j6nA3H.png", available: false },
+  { name: "Gambling Base", type: "gamblingBases", image: "https://i.imgur.com/8q3mCwJ.png", available: false }
 ];
 
 const productsDiv = document.getElementById("products");
@@ -247,15 +204,12 @@ function createProductElement(product) {
   div.innerHTML = `
     <img src="${product.image}" alt="${product.name}">
     <h3>${product.name}</h3>
-    <button class="buy-btn" onclick="buyProduct('${product.name}')">
+    <p>${product.available ? 'Available' : 'Not available in your region'}</p>
+    <button class="buy-btn">
       <img src="https://i.imgur.com/Xo5m6hF.png" alt="Minecraft Chest">
     </button>
   `;
   return div;
-}
-
-function buyProduct(productName) {
-  alert(`You clicked Buy for ${productName}.\nPlease create an order ticket in Discord!`);
 }
 
 function renderProducts(filter = 'all') {
@@ -273,5 +227,6 @@ function filterProducts(category){
 
 renderProducts();
 </script>
+
 </body>
 </html>
